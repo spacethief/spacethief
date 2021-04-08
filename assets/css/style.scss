@@ -1,0 +1,184 @@
+---
+---
+$media: "{{ site.media }}";
+body {
+    margin: 0;
+    background-color: #181728;
+    background-image: url('#{$media}starfield_bg_smaller.jpg');
+    background-attachment: fixed;
+    background-repeat: repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+}
+img {
+    width: 100%;
+}
+
+#page {
+    width: auto;
+    padding: 2em 1% 0;
+    display: grid;
+    grid-template-areas:
+        "header"
+        "video"
+        "albums"
+        "songs"
+        "merch"
+        "blog"
+        "footer";
+    grid-template-columns: 1fr;
+    grid-gap: 1em;
+    grid-template-rows: auto 50em auto auto;
+
+}
+
+header {
+    display: grid;
+    grid-template-rows: auto;
+    grid-area: header;
+    grid-template-areas: "logo" "social"
+}
+.logo { 
+    grid-area: logo; 
+}
+.logo img { 
+    max-height: 100%; 
+    max-width: 100%;
+}
+.social { 
+    grid-area: social; 
+    display: grid;
+    grid-template-columns: repeat(4, 4em);
+    justify-content: end;
+    grid-gap: 1em;
+    padding-right: .5em;
+}
+.social > a img { 
+    border-radius: 50%; 
+    width: 100%;
+}
+
+#page > div {
+    border: 3px solid rgba(189, 207, 35, 0.1);
+    transition: border-color .3s ease-in-out;
+}
+#page > div:hover {
+    border-color: rgba(189, 207, 35, 1);
+}
+
+#page > div img {
+    margin-bottom: -4px;
+}
+
+#albums {
+    grid-area: albums;
+}
+#songs {
+    grid-area: songs;
+}
+#video {
+    grid-area: video;
+}
+#video iframe {
+    height: 100%;
+    width: 100%;
+}
+#merch {
+    grid-area: merch;
+}
+#blog {
+    grid-area: blog;
+}
+#kickstarter {
+    grid-area: kickstarter;
+}
+
+footer {
+    color: #fff;
+    grid-area: footer;
+    font-size: 1.5em;
+    line-height: 2em;
+}
+footer a { 
+    color: #fff;
+    padding: 12px;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    transition: background-color .3s ease-in-out;
+    border: 1px solid;
+    display: inline-block;
+    margin: 5px 0;
+}
+footer a:hover {
+    color: #fff;
+    background-color: rgba(0,0,0,0);
+}
+body > div:last-of-type {
+    display: none;
+}
+/* Tablet */
+@media screen and (min-width: 40em) and (max-width: 65em) {
+    #page {
+        grid-template-areas:
+        "header header"
+        "video albums"
+        "video songs"
+        "merch blog"
+        "footer footer";
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        padding: 30px;
+        width: auto;
+    }
+
+    .logo { 
+        padding: 0 6em;
+        margin-bottom: -60px;
+    }
+    
+}
+
+/* Desktop */
+@media screen and (min-width: 65.625em) {  
+    #page {
+        position: relative;
+        width: 1044px;
+        padding: 0 50px;
+        margin: 1em auto 0;
+        grid-template-areas:
+            "header header header"
+            "video albums songs"
+            "video merch blog"
+            "footer . .";
+        grid-template-columns: 374px repeat(2, 304px);
+        grid-template-rows: 3em 321px 321px;
+    }
+
+    header {
+        grid-template-areas: "logo . social";
+        grid-template-rows: auto;
+    }
+
+    .logo {
+        position: absolute;
+        width: 380px;
+        height: 183px;
+        left: -3em;
+        top: 1em;
+    }
+
+    .social {
+        grid-template-columns: repeat(4, 3.1em);
+        justify-content: end;
+        grid-gap: 1em;    
+    }
+    
+    footer {
+        font-size: 1em;
+    }
+    body > div:last-of-type {
+        display: block;
+    }
+    
+   
+}
