@@ -1,4 +1,5 @@
 # url: https://www.spacethief.com
+baseurl: /spacethief
 permalink: /:title/
 
 media: "/spacethief/assets/images/"
