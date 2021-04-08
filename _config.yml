@@ -1,0 +1,17 @@
+# url: https://www.spacethief.com
+baseurl: /spacethief
+permalink: /:title/
+
+media: "/spacethief/assets/images/"
+
+linkopener: 'target="_blank" rel="noopener noreferrer"'
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+sass:
+style: compressed
+
+exclude: ["/assets/images/not-in-use","spacethief.code-workspace"]
