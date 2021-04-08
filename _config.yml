@@ -1,7 +1,7 @@
 # url: https://www.spacethief.com
 permalink: /:title/
 
-media: "/assets/images/"
+media: "/spacethief/assets/images/"
 
 linkopener: 'target="_blank" rel="noopener noreferrer"'
 
