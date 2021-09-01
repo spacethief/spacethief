@@ -1,8 +1,7 @@
-# url: https://www.spacethief.com
-baseurl: /spacethief
+url: https://www.spacethief.com
 permalink: /:title/
 
-media: "/spacethief/assets/images/"
+media: "/assets/images/"
 
 linkopener: 'target="_blank" rel="noopener noreferrer"'
 
