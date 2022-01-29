@@ -12,16 +12,30 @@ title: Space Thief
                 title="Space Thief - Remember"
             ></iframe>
         </div>
-        <div id="albums"><a href="https://spacethief.bandcamp.com">
-            <img src="{{ site.media }}buy.jpg" alt="buy" title="Listen and Buy albums on Bandcamp">
+        <div id="albums" class="icon-grid" style="background-image:url({{ site.media }}discman.jpg)"><a href="https://spacethief.bandcamp.com">
+            <span>Bandcamp</span>
         </a></div>
-        <div id="songs"><a href="https://soundcloud.com/spacethief">
-            <img src="{{ site.media }}stream.jpg" alt="stream" title="Listen on soundcloud"></a>
+        <div id="stream" class="icon-grid" style="background-image:url({{ site.media }}stream.jpg)">
+            <span>Stream Thief</span>
+            <section class="stream-links">
+                <a class="soundcloud" title="soundcloud" href="https://soundcloud.com/spacethief"><i class="fab fa-soundcloud"></i></a>
+                <a class="apple" title="apple music" href="https://geo.music.apple.com/us/artist/space-thief/365405300?mt=1&app=music&ls=1"><i class="fab fa-apple"></i></a>
+                <a class="amazon" title="amazon music" href="https://www.amazon.com/That-World-Magic-Space-Thief/dp/B01CL6OHUY/"><i class="fab fa-amazon"></i></a>
+                <a class="spotify" title="spotify" href="https://open.spotify.com/artist/2yv9aPfgu9D6t2dAmcH7fV"><i class="fab fa-spotify"></i></a>
+            </section>
         </div>
-        <div id="merch"><a href="https://www.zazzle.com/store/spacethiefmerch?rf=238212748211649695">
-            <img src="{{ site.media }}wear.jpg" alt="merchandise" title="Fancy a T-shirt? How about a coaster? Available on Zazzle">
+        <div id="merch" class="icon-grid" style="background-image:url({{ site.media }}merch.jpg)" title="Fancy a T-shirt? How about a coaster? Available on Zazzle"><a href="https://www.zazzle.com/store/spacethiefmerch?rf=238212748211649695">
+            <span>Merch Table</span>
         </a></div>
-        <div id="blog"><a href="https://spacebard.com">
-            <img src="{{ site.media }}blog.jpg" alt="blog" title="Wordpress.com">
-        </a></div>
+        <div id="socials">
+            <a href="https://www.patreon.com/spacebard" title="patreon">
+                <i class="fab fa-patreon"></i>
+            </a>
+            <a href="https://instagram.com/ben.ickler" title="instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com/channel/UC8C-JSBMv-c4bU8KitIyDFA" title="youtube">
+                <i class="fab fa-youtube"></i>
+            </a>
+        </div>
 {% include foot.html %}

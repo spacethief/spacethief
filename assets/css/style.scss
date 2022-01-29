@@ -1,6 +1,19 @@
 ---
 ---
 $media: "{{ site.media }}";
+$highlight: rgba(249,235,27,1);
+$lightblue: rgba(114,211,254,1);
+$lightblur: rgba(114,211,254,.5);
+$midblue: rgba(50,125,213,.5);
+$darkblue: rgba(48,71,237,.5);
+
+$red: rgba(255,0,0,.4);
+$yellow: rgba(255, 255, 0, .4);
+$blue: rgba(0,0,255, .4);
+
+$gridw: 365px;
+$gridh: 380px;
+
 body {
     margin: 0;
     background-color: #181728;
@@ -13,47 +26,55 @@ body {
 img {
     width: 100%;
 }
+a {
+    color: $highlight;
+    text-decoration: none;
+}
 
 #page {
     width: auto;
-    padding: 2em 1% 0;
+    justify-content: center;
+    padding: 1em 1% 0;
     display: grid;
     grid-template-areas:
         "header"
         "video"
         "albums"
-        "songs"
+        "stream"
         "merch"
-        "blog"
+        "socials"
         "footer";
-    grid-template-columns: 1fr;
+    grid-template-columns: $gridw;
     grid-gap: 1em;
-    grid-template-rows: auto 50em auto auto;
+    grid-template-rows: auto 645px repeat(3,$gridh) auto auto;
 
 }
 
 header {
-    display: grid;
-    grid-template-rows: auto;
+    display: flex;
     grid-area: header;
-    grid-template-areas: "logo" "social"
+    justify-self: center;
 }
 .logo { 
-    grid-area: logo; 
+    grid-area: logo;
+    --height: 120px;
+    width: calc(var(--height)*2);
+    height: var(--height);
+    justify-self: center;
 }
 .logo img { 
     max-height: 100%; 
     max-width: 100%;
 }
-.social { 
-    grid-area: social; 
+.oldsocial { 
+    grid-area: oldsocial; 
     display: grid;
     grid-template-columns: repeat(4, 4em);
     justify-content: end;
     grid-gap: 1em;
     padding-right: .5em;
 }
-.social > a img { 
+.oldsocial > a img { 
     border-radius: 50%; 
     width: 100%;
 }
@@ -61,20 +82,54 @@ header {
 #page > div {
     border: 3px solid rgba(189, 207, 35, 0.1);
     transition: border-color .3s ease-in-out;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: $highlight;
+    &:hover {
+        border-color: rgba(189, 207, 35, 1);
+    }
+    &#socials {
+        border: none;
+    }
 }
-#page > div:hover {
-    border-color: rgba(189, 207, 35, 1);
-}
-
 #page > div img {
     margin-bottom: -4px;
 }
 
+.icon-grid {
+    position: relative;
+    font-family: cursive;
+    font-weight: 300;
+    font-size: 2em;
+    text-shadow: 1px 2px 1px rgba(0,0,0,.8);
+    a {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    span {
+        display: block;
+        position: relative;
+    }
+}
+
 #albums {
     grid-area: albums;
+    span {
+        top: 3%;
+        left: 5%;
+    }
 }
-#songs {
-    grid-area: songs;
+#stream {
+    grid-area: stream;
+    span {
+        position: absolute;
+        text-align: center;
+        width: 170px;
+        bottom: 145px;
+        right: 10px;
+    }
 }
 #video {
     grid-area: video;
@@ -85,12 +140,77 @@ header {
 }
 #merch {
     grid-area: merch;
+    span {
+        position: absolute;
+        width: 100px;
+        text-align: center;
+        bottom: 50px;
+        right: 35px;
+    }
 }
-#blog {
-    grid-area: blog;
+#socials {
+    grid-area: socials;
+    border: none;
+    display: grid;
+    grid-template-columns: repeat(3, 118px);
+    grid-template-rows: 118px;
+    grid-gap: 3px 5px;
+    place-items: center;
+    a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        font-size: 50px;
+        text-align: center;
+        color: #fff;
+        transition: all .4s ease-in-out;
+        text-shadow: 0 1px 2px $lightblur, 1px 2px 3px $midblue, 2px 3px 3px $darkblue, 2px 3px 1px rgba(0,0,0,.8);
+        text-shadow: 1px 1px 1px $lightblur, -1px -1px 1px $red, 1px -1px 1px $highlight, -1px 1px 1px $darkblue, 2px 3px 1px rgba(0,0,0,.8);
+        text-shadow: 2px 2px 0 $yellow, -2px -2px 0 $red, -2px 2px 0 $blue, 2px 3px 1px rgba(0,0,0,.8);
+        &:hover {
+            color: $highlight;
+            text-shadow: 2px 3px 1px rgba(0,0,0,.8);
+        }
+        i {
+            line-height: 118px;
+        }
+    }
 }
 #kickstarter {
     grid-area: kickstarter;
+}
+
+// Streaming
+.stream-links {
+    display: grid;
+    width: auto;
+    height: auto;
+    grid-template-columns: repeat(2,65px);
+    grid-gap: 3px 5px;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    a {
+        color:  #fff;
+        font-size: 40px;
+        justify-self: center;
+        text-align: center;
+        display: block;
+        height: 60px;
+        text-shadow: 0 1px 2px $lightblur, 1px 2px 3px $midblue, 2px 3px 3px $darkblue, 2px 3px 1px rgba(0,0,0,1);
+        text-shadow: 2px 2px 0 $yellow, -2px -2px 0 $red, -2px 2px 0 $blue, 2px 3px 1px rgba(0,0,0,.8);
+        border: 1px solid;
+        transition: all .4s ease-in-out;
+        &:hover {
+            color: $highlight;
+            text-shadow: 2px 3px 1px rgba(0,0,0,.8);
+        }
+        i {
+            line-height: 40px;
+            &.fa-soundcloud, &.fa-apple {
+            }
+        }
+    }
 }
 
 footer {
@@ -122,20 +242,22 @@ body > div:last-of-type {
         grid-template-areas:
         "header header"
         "video albums"
-        "video songs"
-        "merch blog"
+        "video stream"
+        "merch socials"
         "footer footer";
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: auto;
+        grid-template-columns: repeat(2, $gridw);
+        grid-template-rows: auto repeat(3, $gridh) auto;
         padding: 30px;
         width: auto;
     }
 
     .logo { 
         padding: 0 6em;
-        margin-bottom: -60px;
+        height: auto;
+        width: auto;
+        z-index: 100;
     }
-    
+   
 }
 
 /* Desktop */
@@ -147,16 +269,11 @@ body > div:last-of-type {
         margin: 1em auto 0;
         grid-template-areas:
             "header header header"
-            "video albums songs"
-            "video merch blog"
+            "video albums stream"
+            "video merch socials"
             "footer . .";
-        grid-template-columns: 374px repeat(2, 304px);
-        grid-template-rows: 3em 321px 321px;
-    }
-
-    header {
-        grid-template-areas: "logo . social";
-        grid-template-rows: auto;
+        grid-template-columns: repeat(3, $gridw);
+        grid-template-rows: 3em repeat(2, $gridh);
     }
 
     .logo {
@@ -167,7 +284,7 @@ body > div:last-of-type {
         top: 1em;
     }
 
-    .social {
+    .oldsocial {
         grid-template-columns: repeat(4, 3.1em);
         justify-content: end;
         grid-gap: 1em;    
@@ -180,5 +297,4 @@ body > div:last-of-type {
         display: block;
     }
     
-   
 }
