@@ -14,6 +14,8 @@ $blue: rgba(0,0,255, .4);
 $gridw: 365px;
 $gridh: 380px;
 
+$cursive: 'Tangerine', cursive;
+
 body {
     margin: 0;
     background-color: #181728;
@@ -99,9 +101,9 @@ header {
 
 .icon-grid {
     position: relative;
-    font-family: cursive;
+    font-family: $cursive;
     font-weight: 300;
-    font-size: 2em;
+    font-size: 3em;
     text-shadow: 1px 2px 1px rgba(0,0,0,.8);
     a {
         display: block;
@@ -128,7 +130,7 @@ header {
         text-align: center;
         width: 170px;
         bottom: 145px;
-        right: 10px;
+        right: 20px;
     }
 }
 #video {
