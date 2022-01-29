@@ -1,5 +1,6 @@
 ---
 ---
+// Variables
 $media: "{{ site.media }}";
 $highlight: rgba(249,235,27,1);
 $lightblue: rgba(114,211,254,1);
@@ -16,6 +17,7 @@ $gridh: 380px;
 
 $cursive: 'Tangerine', cursive;
 
+// Layout
 body {
     margin: 0;
     background-color: #181728;
@@ -52,6 +54,7 @@ a {
 
 }
 
+// Header
 header {
     display: flex;
     grid-area: header;
@@ -81,6 +84,7 @@ header {
     width: 100%;
 }
 
+// Main Content
 #page > div {
     border: 3px solid rgba(189, 207, 35, 0.1);
     transition: border-color .3s ease-in-out;
@@ -116,6 +120,16 @@ header {
     }
 }
 
+// Video
+#video {
+    grid-area: video;
+}
+#video iframe {
+    height: 100%;
+    width: 100%;
+}
+
+// Bandcamp
 #albums {
     grid-area: albums;
     span {
@@ -123,6 +137,8 @@ header {
         left: 16px;
     }
 }
+
+// Streaming
 #stream {
     grid-area: stream;
     span {
@@ -133,13 +149,38 @@ header {
         right: 20px;
     }
 }
-#video {
-    grid-area: video;
+
+.stream-links {
+    display: grid;
+    width: auto;
+    height: auto;
+    grid-template-columns: repeat(2,65px);
+    grid-gap: 3px 5px;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    a {
+        color:  #fff;
+        font-size: 40px;
+        justify-self: center;
+        text-align: center;
+        display: block;
+        height: 60px;
+        text-shadow: 0 1px 2px $lightblur, 1px 2px 3px $midblue, 2px 3px 3px $darkblue, 2px 3px 1px rgba(0,0,0,1);
+        text-shadow: 2px 2px 0 $yellow, -2px -2px 0 $red, -2px 2px 0 $blue, 2px 3px 1px rgba(0,0,0,.8);
+        border: 1px solid;
+        transition: all .4s ease-in-out;
+        &:hover {
+            color: $highlight;
+            text-shadow: 2px 3px 1px rgba(0,0,0,.8);
+        }
+        i {
+            line-height: 60px;
+        }
+    }
 }
-#video iframe {
-    height: 100%;
-    width: 100%;
-}
+
+// Merch
 #merch {
     grid-area: merch;
     span {
@@ -150,6 +191,8 @@ header {
         right: 31px;
     }
 }
+
+// Social Links
 #socials {
     grid-area: socials;
     border: none;
@@ -178,41 +221,8 @@ header {
         }
     }
 }
-#kickstarter {
-    grid-area: kickstarter;
-}
 
-// Streaming
-.stream-links {
-    display: grid;
-    width: auto;
-    height: auto;
-    grid-template-columns: repeat(2,65px);
-    grid-gap: 3px 5px;
-    position: absolute;
-    right: 5px;
-    bottom: 5px;
-    a {
-        color:  #fff;
-        font-size: 40px;
-        justify-self: center;
-        text-align: center;
-        display: block;
-        height: 60px;
-        text-shadow: 0 1px 2px $lightblur, 1px 2px 3px $midblue, 2px 3px 3px $darkblue, 2px 3px 1px rgba(0,0,0,1);
-        text-shadow: 2px 2px 0 $yellow, -2px -2px 0 $red, -2px 2px 0 $blue, 2px 3px 1px rgba(0,0,0,.8);
-        border: 1px solid;
-        transition: all .4s ease-in-out;
-        &:hover {
-            color: $highlight;
-            text-shadow: 2px 3px 1px rgba(0,0,0,.8);
-        }
-        i {
-            line-height: 60px;
-        }
-    }
-}
-
+// Footer
 footer {
     color: #fff;
     grid-area: footer;
@@ -236,7 +246,10 @@ footer a:hover {
 body > div:last-of-type {
     display: none;
 }
-/* Tablet */
+
+/*~~~ Responsive Scaling ~~~*/
+
+// Tablet
 @media screen and (min-width: 40em) and (max-width: 65em) {
     #page {
         grid-template-areas:
@@ -260,7 +273,7 @@ body > div:last-of-type {
    
 }
 
-/* Desktop */
+// Desktop
 @media screen and (min-width: 65.625em) {  
     #page {
         position: relative;
