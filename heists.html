@@ -1,0 +1,22 @@
+---
+title: Heists
+---
+{% include head.html %}
+
+<div class="content">
+{% assign heists = site.heists | sort:"date" | reverse %}
+{% for heist in heists %}
+
+    <article>
+        <iframe style="border: 0;" src="https://bandcamp.com/EmbeddedPlayer/album={{ heist.key }}/size=large/bgcol=333333/linkcol=f171a2/minimal=true/transparent=true/" seamless><a href="https://spacethief.bandcamp.com/album/{{ heist.title | slugify }}">{{ heist.title }} by Space Thief</a></iframe>
+        <footer>
+            <span><a href="https://spacethief.bandcamp.com/album/{{ heist.title | slugify }}">{{ heist.title }}</a></span>
+            <span>{{ heist.date | date: '%b %Y' }}</span>
+        </footer>
+    </article>
+
+{% endfor %}
+</div>
+<a class="more" href="https://music.spacethief.com">More!</a>
+
+{% include foot.html %}

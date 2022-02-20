@@ -40,7 +40,8 @@ a {
     justify-content: center;
     padding: 1em 1% 0;
     display: grid;
-    grid-template-areas:
+    &.space-thief {
+        grid-template-areas:
         "header"
         "video"
         "albums"
@@ -51,7 +52,14 @@ a {
     grid-template-columns: $gridw;
     grid-gap: 1em;
     grid-template-rows: auto 645px repeat(3,$gridh) auto auto;
-
+    }
+    &.heists {
+        grid-template-areas:
+        "header"
+        "content"
+        "more"
+        "footer";
+    }
 }
 
 // Header
@@ -85,7 +93,7 @@ header {
 }
 
 // Main Content
-#page > div {
+#page.space-thief > div {
     border: 3px solid rgba(189, 207, 35, 0.1);
     transition: border-color .3s ease-in-out;
     background-size: cover;
@@ -99,7 +107,7 @@ header {
         border: none;
     }
 }
-#page > div img {
+#page.space-thief > div img {
     margin-bottom: -4px;
 }
 
@@ -222,26 +230,72 @@ header {
     }
 }
 
+// Heists
+#page.heists {
+    .content {
+        display: grid;
+        max-width: 100%;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-gap: 25px 72px;
+        margin-bottom: 25px;
+        place-content: center;
+        grid-area: content;
+        article {
+            display: block;
+            width: 300px;
+            iframe {
+                width: 300px;
+                height: 300px;
+            }
+        }
+    }
+}
+
+.more {
+    display: grid;
+    width: 100px;
+    border: 1px solid;
+    padding: 5px 10px;
+    margin: 1em auto 25px;
+    text-align: center;
+    font-size: 1.5em;
+    grid-area: more;
+}
+
 // Footer
 footer {
     color: #fff;
+    a {
+        color: #fff;
+        text-decoration: none;
+        &:hover {
+            color: #fff;
+        }
+    }
+}
+.heists .content footer {
+    display: grid;
+    grid-auto-flow: column;
+    span:last-of-type {
+        text-align: right;
+        justify-self: right;
+    }
+}
+footer.sitefoot {
     grid-area: footer;
     font-size: 1.5em;
     line-height: 2em;
-}
-footer a { 
-    color: #fff;
-    padding: 12px;
-    background-color: rgba(0, 0, 0, 0.5);
-    text-decoration: none;
-    transition: background-color .3s ease-in-out;
-    border: 1px solid;
-    display: inline-block;
-    margin: 5px 0;
-}
-footer a:hover {
-    color: #fff;
-    background-color: rgba(0,0,0,0);
+    a { 
+        padding: 12px;
+        background-color: rgba(0, 0, 0, 0.5);
+        transition: background-color .3s ease-in-out;
+        border: 1px solid;
+        display: inline-block;
+        margin: 5px 0;
+        &:hover {
+            background-color: rgba(0,0,0,0);
+        }
+    }
 }
 body > div:last-of-type {
     display: none;
@@ -252,16 +306,24 @@ body > div:last-of-type {
 // Tablet
 @media screen and (min-width: 40em) and (max-width: 65em) {
     #page {
-        grid-template-areas:
-        "header header"
-        "video albums"
-        "video stream"
-        "merch socials"
-        "footer footer";
-        grid-template-columns: repeat(2, $gridw);
-        grid-template-rows: auto repeat(3, $gridh) auto;
-        padding: 30px;
-        width: auto;
+        &.space-thief {
+            grid-template-areas:
+            "header header"
+            "video albums"
+            "video stream"
+            "merch socials"
+            "footer footer";
+            grid-template-columns: repeat(2, $gridw);
+            grid-template-rows: auto repeat(3, $gridh) auto;
+            padding: 30px;
+            width: auto;
+        }
+        &.heists {
+            .content {
+                width: 650px;
+                grid-column-gap: 50px;
+            }
+        }
     }
 
     .logo { 
@@ -277,22 +339,33 @@ body > div:last-of-type {
 @media screen and (min-width: 65.625em) {  
     #page {
         position: relative;
-        width: 1044px;
         padding: 0 50px;
         margin: 1em auto 0;
-        grid-template-areas:
-            "header header header"
-            "video albums stream"
-            "video merch socials"
-            "footer . .";
-        grid-template-columns: repeat(3, $gridw);
-        grid-template-rows: 3em repeat(2, $gridh);
+        width: 1044px;
+        &.space-thief {
+            grid-template-areas:
+                "header header header"
+                "video albums stream"
+                "video merch socials"
+                "footer . .";
+            grid-template-columns: repeat(3, $gridw);
+            grid-template-rows: 3em repeat(2, $gridh);
+        }
+        &.heists {
+            display: block;
+            .content {
+                grid-row-gap: 50px;
+            }
+        }
     }
-
     .logo {
+        --height: 183px;    
+    }
+    .heists .logo {
+        --height: 140px;
+    }
+    .space-thief .logo {
         position: absolute;
-        width: 380px;
-        height: 183px;
         left: -3em;
         top: 1em;
     }
@@ -303,7 +376,7 @@ body > div:last-of-type {
         grid-gap: 1em;    
     }
     
-    footer {
+    footer.sitefoot {
         font-size: 1em;
     }
     body > div:last-of-type {

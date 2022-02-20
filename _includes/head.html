@@ -12,8 +12,11 @@
     {% seo %}
 </head>
 <body>
-    <div id="page">
+    <div id="page" class="{{page.title | slugify}}">
         <header>
+            {% unless page.title == 'Space Thief' %}
+            <a href="{{site.url}}">
+            {% endunless %}
             <section class="logo">
                 <picture>
                     <source type="image/webp" srcset="{{ site.media }}stlogo.webp">
@@ -21,5 +24,8 @@
                     <img src="{{ site.media }}stlogo.png" alt="Space Thief">
                 </picture>
             </section>
+            {% unless page.title == 'Space Thief' %}
+            </a>
+            {% endunless %}
         </header>
         

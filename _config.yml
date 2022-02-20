@@ -5,6 +5,10 @@ media: "/assets/images/"
 
 linkopener: 'target="_blank" rel="noopener noreferrer"'
 
+collections:
+  heists:
+    output: true
+
 plugins:
   - jekyll-feed
   - jekyll-sitemap
