@@ -1,10 +1,3 @@
-
-.DS_Store
-.htaccess
-.jekyll-cache/
-_site/
 assets/images/not-in-use/
-vendor/
-spacethief.code-workspace
 old-favicon.gif
 old-favicon.ico
