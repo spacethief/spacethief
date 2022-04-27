@@ -1,4 +1,4 @@
-permalink: /:title/
+permalink: /:title
 description: Songs from an eclectic galaxy.
 
 media: "/assets/images/"
@@ -15,6 +15,6 @@ plugins:
   - jekyll-seo-tag
 
 sass:
-style: compressed
+  style: compressed
 
 exclude: ["/assets/images/not-in-use","spacethief.code-workspace"]
