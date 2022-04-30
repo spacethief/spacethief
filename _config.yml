@@ -1,4 +1,4 @@
-permalink: /:title
+permalink: /:title/
 description: Songs from an eclectic galaxy.
 
 media: "/assets/images/"
@@ -7,7 +7,7 @@ linkopener: 'target="_blank" rel="noopener noreferrer"'
 
 collections:
   heists:
-    output: true
+    output: false
 
 plugins:
   - jekyll-feed
