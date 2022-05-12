@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-    {% include featured-image.html %}
+    <title>{% if page.title %}{% unless page.title == site.title %}{{site.title}}'s {{ page.title }}{% else %}{{site.title}}{% endunless %}{% endif %}</title>
     <script src="https://kit.fontawesome.com/67eb250e26.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="{{site.baseurl}}/assets/css/style.css">
     <link rel="icon" href="{{site.baseurl}}/favicon.ico" sizes="32x32">
     <link rel="shortcut icon" sizes="196x196" href="{{site.baseurl}}/favicon.ico">
     <link rel="apple-touch-icon" href="{{site.baseurl}}/favicon.ico" sizes="180x180">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% include featured-image.html %}
     {% feed_meta %}
     {% seo %}
 </head>
@@ -28,4 +29,3 @@
             </a>
             {% endunless %}
         </header>
-        
