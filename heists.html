@@ -8,7 +8,10 @@ title: Heists
 {% for heist in heists %}
 
     <article>
-        <iframe style="border: 0;" src="https://bandcamp.com/EmbeddedPlayer/album={{ heist.key }}/size=large/bgcol=333333/linkcol=f171a2/minimal=true/transparent=true/" seamless><a href="https://spacethief.bandcamp.com/album/{{ heist.title | slugify }}">{{ heist.title }} by Space Thief</a></iframe>
+        <iframe style="border: 0;"
+            src="https://bandcamp.com/EmbeddedPlayer/{{heist.type}}={{ heist.key }}/size=large/bgcol=333333/linkcol=f171a2/minimal=true/transparent=true/" seamless>
+            <a href="https://spacethief.bandcamp.com/{{heist.type}}/{{ heist.title | slugify }}">{{ heist.title }} by Space Thief</a>
+        </iframe>
         <footer>
             <span><a href="https://spacethief.bandcamp.com/album/{{ heist.title | slugify }}">{{ heist.title }}</a></span>
             <span>{{ heist.date | date: '%b %Y' }}</span>
