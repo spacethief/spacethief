@@ -13,7 +13,7 @@ title: Heists
             <a href="https://spacethief.bandcamp.com/{{heist.type}}/{{ heist.title | slugify }}">{{ heist.title }} by Space Thief</a>
         </iframe>
         <footer>
-            <span><a href="https://spacethief.bandcamp.com/album/{{ heist.title | slugify }}">{{ heist.title }}</a></span>
+            <span><a href="https://spacethief.bandcamp.com/{{heist.type}}/{{ heist.title | slugify }}">{{ heist.title }}</a></span>
             <span>{{ heist.date | date: '%b %Y' }}</span>
         </footer>
     </article>
