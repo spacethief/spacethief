@@ -2,7 +2,7 @@ name: Deploy site
 
 on:
   push:
-    branches: [main, eleventy-migration]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
