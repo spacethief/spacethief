@@ -1,0 +1,29 @@
+{
+  "name": "spacethief",
+  "version": "1.0.0",
+  "description": "All yr space are belong to us.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --style=compressed src/style.scss _site/style.css",
+    "build": "eleventy && npm run sass",
+    "start": "npm run sass && eleventy --serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spacethief/spacethief.git"
+  },
+  "keywords": [],
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/spacethief/spacethief/issues"
+  },
+  "homepage": "https://github.com/spacethief/spacethief#readme",
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.8",
+    "js-yaml": "^5.5.0"
+  },
+  "devDependencies": {
+    "sass": "^1.108.2"
+  }
+}
