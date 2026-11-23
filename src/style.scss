@@ -1,7 +1,4 @@
----
----
 // Variables
-$media: "{{ site.media }}";
 $highlight: rgba(249,235,27,1);
 $lightblue: rgba(114,211,254,1);
 $lightblur: rgba(114,211,254,.5);
@@ -23,7 +20,7 @@ $cursive: 'Tangerine', cursive;
 body {
     margin: 0;
     background-color: #181728;
-    background-image: url('#{$media}starfield_bg_smaller.jpg');
+    background-image: url('/assets/images/starfield_bg_smaller.jpg');
     background-attachment: fixed;
     background-repeat: repeat;
     background-position: 50% 50%;

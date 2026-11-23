@@ -1,0 +1,31 @@
+---
+title: page now.
+permalink: /404.html
+eleventyExcludeFromCollections: true
+---
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    {% assign description = description | default: caption | default: site.description %}
+    {% if title and title != site.title %}
+        {% assign pageTitle = site.title | append: "'s " | append: title %}
+    {% else %}
+        {% assign pageTitle = site.title %}
+    {% endif %}
+    <title>{{ pageTitle }}</title>
+    <meta name="description" content="{{ description | escape }}">
+    <script src="https://kit.fontawesome.com/67eb250e26.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{{ '/style.css' }}">
+    <link rel="icon" href="{{ '/favicon.ico' }}" sizes="32x32">
+    <link rel="shortcut icon" sizes="196x196" href="{{ '/favicon.ico' }}">
+    <link rel="apple-touch-icon" href="{{ '/favicon.ico' }}" sizes="180x180">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% include featured-image.html %}
+    {% include seo.html %}
+</head>
+
+<body style="background:none;">
+
+<p>The Page Thief has struck again! Let's get you back <a style="color:black; text-decoration: underline;" href="{{ '/' }}">home</a>.</p>
+
+</body>
